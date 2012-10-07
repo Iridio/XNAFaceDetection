@@ -22,7 +22,6 @@ namespace WindowsGame1
 
         private Image<Gray, byte> gray = null;
         private HaarCascade haarCascade = new HaarCascade("haarcascade_frontalface_default.xml");
-        private MCvFont font = new MCvFont(FONT.CV_FONT_HERSHEY_TRIPLEX, 0.5d, 0.5d);
         
         public Texture2D Frame
         {
