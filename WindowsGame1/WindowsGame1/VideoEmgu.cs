@@ -22,7 +22,7 @@ namespace WindowsGame1
 
         private Image<Gray, byte> gray = null;
         private HaarCascade haarCascade = new HaarCascade("haarcascade_frontalface_default.xml");
-        
+
         public Texture2D Frame
         {
             get
@@ -33,11 +33,11 @@ namespace WindowsGame1
                 return frame;
             }
         }
-        
-        public VideoEmgu(GraphicsDevice device)
-        {           
+
+        public VideoEmgu(GraphicsDevice device, int camIndex)
+        {
             this.device = device;
-            capture = new Capture();
+            capture = new Capture(camIndex);
             frame = new Texture2D(device, capture.Width, capture.Height);
             colorData = new Color[capture.Width * capture.Height];
         }
@@ -54,7 +54,7 @@ namespace WindowsGame1
             IsRunning = false;
             capture.Dispose();
         }
-        
+
         private void QueryFrame()
         {
             while (IsRunning)
